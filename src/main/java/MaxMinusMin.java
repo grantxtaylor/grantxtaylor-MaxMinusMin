@@ -9,7 +9,21 @@ public class MaxMinusMin {
      * @param nums an List<Integer> containing varying nums.
      * @return the max value of nums minus the min value of nums.
      */
-    public int difference(List<Integer> nums){
-        return 0;
+    public int difference(List<Integer> nums) {
+        if (nums.isEmpty()) {
+            throw new IllegalArgumentException("List must not be empty");
+        }
+        int min = nums.get(0);
+        int max = nums.get(0);
+        for (int i = 1; i < nums.size(); i++) {
+            int num = nums.get(i);
+            if (num < min) {
+                min = num;
+            }
+            if (num > max) {
+                max = num;
+            }
+        }
+        return max - min;
     }
 }
